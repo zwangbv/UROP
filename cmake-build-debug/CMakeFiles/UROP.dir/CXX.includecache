@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/noki/CLionProjects/UROP/allocation.cpp
+queue
+-
+iostream
+-
+stdio.h
+-
+limits.h
+-
+string.h
+-
+allocation.h
+C:/Users/noki/CLionProjects/UROP/allocation.h
+vector
+-
+algorithm
+-
+
+C:/Users/noki/CLionProjects/UROP/allocation.h
+vector
+-
+
+C:/Users/noki/CLionProjects/UROP/main.cpp
+iostream
+-
+allocation.h
+C:/Users/noki/CLionProjects/UROP/allocation.h
+limits.h
+-
+string.h
+-
+queue
+-
+
