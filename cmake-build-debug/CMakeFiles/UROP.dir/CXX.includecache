@@ -28,6 +28,16 @@ C:/Users/noki/CLionProjects/UROP/allocation.h
 vector
 -
 
+C:/Users/noki/CLionProjects/UROP/layer.cpp
+layer.h
+C:/Users/noki/CLionProjects/UROP/layer.h
+allocation.h
+C:/Users/noki/CLionProjects/UROP/allocation.h
+
+C:/Users/noki/CLionProjects/UROP/layer.h
+allocation.h
+C:/Users/noki/CLionProjects/UROP/allocation.h
+
 C:/Users/noki/CLionProjects/UROP/main.cpp
 iostream
 -
@@ -39,4 +49,12 @@ string.h
 -
 queue
 -
+vector
+C:/Users/noki/CLionProjects/UROP/vector
+algorithm
+C:/Users/noki/CLionProjects/UROP/algorithm
+iterator
+C:/Users/noki/CLionProjects/UROP/iterator
+layer.h
+C:/Users/noki/CLionProjects/UROP/layer.h
 

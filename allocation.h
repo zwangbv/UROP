@@ -23,8 +23,11 @@ public:
     int playerSize(){return num_players;};
     int resourceSize(){return num_resources;};
     int getRequirement(int player,int resource){return requirement[player][resource];};
+    double getValue(int player,int resource){return values[resource]*requirement[player][resource];}
     int getGm(int player,int resource){return Gm[player][resource];};
     void printMax();
+    int** getMaxMatching(){return maxMatching;};
+    void setMaxMatching(int **matching){maxMatching = matching;};
    // bool find(int x);
 private:
 vector<int> players;

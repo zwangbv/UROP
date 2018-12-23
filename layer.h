@@ -11,12 +11,23 @@ struct edges{
 };
 
 class layer {
+public:
+
+    layer(vector<edges> xedges, vector<edges> yedges,int newd,int newz);
+    ~layer();
+    void addX(vector<edges> Xedges);
+    void addY( vector<edges> Yedges);
+    vector<int> getXplayers(){return Xplayers;};
+    vector<int> getYplayers(){return Yplayers;};
+    vector<edges> getXedges(){return Xedges;};
+    vector<edges> getYedges(){return Yedges;};
 private:
-    allocation allo;
     vector<int> Xplayers;
     vector<int> Yplayers;
     vector<edges> Xedges;
     vector<edges> Yedges;
+    int d;
+    int z;
 };
 
 

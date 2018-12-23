@@ -63,7 +63,7 @@ int** allocation::buildRequirement(){
     return requirement;
 }
 
-int** allocation::buildMaxMatching(){
+int** allocation::buildMaxMatching(){//player & resources Adjacency matrix, size: __maxNodes*__maxNodes, if in M ij=ji=1
     int __maxNodes= num_players+num_resources;
     maxMatching  =  new int* [__maxNodes];
     for(int i = 0; i < __maxNodes; i++) {
@@ -91,14 +91,12 @@ int** allocation::buildMaxMatching(){
             }
         }
     }
-cout<<"hhhh";
     queue<int> Q;
     int matching[__maxNodes]; /* result*/
     int check[__maxNodes];
     int prev[__maxNodes];
     memset(matching, -1, sizeof(matching));
     memset(check, -1, sizeof(check));
-
     for (int i=0; i<num_players; ++i) {
         if (matching[i] == -1) {
             while (!Q.empty()) Q.pop();
@@ -132,8 +130,6 @@ cout<<"hhhh";
             }
         }
     }
-
-    cout<<"hhhh"<<endl;
     for(int i=0;i<__maxNodes;i++){
         if(matching[i]>0){
             maxMatching[i][matching[i]]=1;
@@ -145,9 +141,9 @@ cout<<"hhhh";
 
 void allocation:: printMax(){
     int __maxNodes= num_players+num_resources;
-    for(int i = 0; i < num_players; i++){
-        for(int j = 0; j < num_resources; j++){
-            cout<<maxMatching[i][j+num_players]<<",";
+    for(int i = 0; i < __maxNodes; i++){
+        for(int j = 0; j < __maxNodes; j++){
+            cout<<Gm[i][j]<<",";
         }
         cout<<endl;
     }
@@ -158,16 +154,21 @@ int** allocation::buildGm(){//in M i,j, Gm=1, not in M, Gm ji=1
     for(int i = 0; i < __maxNodes; i++) {
         Gm[i] = new int[__maxNodes];
     }
-    for(int i = 0; i < num_players; i++){
-        for(int j = num_players; j < __maxNodes; j++) {
-            if (requirement[i][j - num_players] == 1 && values[j] - num_players >= fatvalue) {
-                if (maxMatching[i][j] == 1)
-                    Gm[j][i] = 1;//i to j
-                else
-                    Gm[i][j] = 1;
+    for(int i = 0; i < __maxNodes; i++){
+        for(int j =0; j < __maxNodes; j++) {
+            Gm[j][i] = 0;
+        }
+    }
+    for(int i = 0; i < __maxNodes; i++){
+        for(int j =0; j < __maxNodes; j++) {
+            if(i<num_players && j>=num_players){
+                if (requirement[i][j - num_players] == 1 && values[j - num_players]  >= fatvalue) {
+                    if (maxMatching[i][j] == 1)
+                        Gm[j][i] = 1;//j to i
+                    else
+                        Gm[i][j] = 1;//i to j
+                }
             }
-            else
-                Gm[i][j] = 0;
         }
     }
     return Gm;
